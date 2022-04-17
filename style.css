@@ -1,0 +1,376 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+}
+
+body {
+  background-color: rgb(252, 247, 226);
+  font-size: 18px;
+  font-family: "Anek Odia", sans-serif;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+.main {
+  margin: 50px;
+}
+
+.container {
+  align-items: center;
+  display: grid;
+}
+
+header {
+  display: grid;
+  grid-template-areas: "hero hero feature-1";
+}
+
+.hero {
+  grid-area: hero;
+  min-height: 350px;
+  background-image: url(img/bg.jpg);
+  background-size: cover;
+  background-position: center;
+  padding: 50px;
+}
+
+.hero h2,
+.hero p {
+  display: none;
+}
+
+.hero img {
+  display: block;
+  width: 250px;
+  margin-top: -25px;
+}
+
+.features {
+  grid-area: feature-1;
+  background-color: black;
+  color: aliceblue;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+
+/* navbar */
+.menu {
+  order: -1;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand h1 {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: black;
+}
+
+.menu ul {
+  display: grid;
+  list-style: none;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 5px;
+}
+
+.menu a {
+  color: white;
+  display: block;
+  background-color: black;
+  text-decoration: none;
+  text-align: center;
+  padding: 5px;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+
+.quotes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.quote {
+  background-color: rgb(255, 255, 255);
+  padding: 15px;
+  text-align: center;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
+}
+
+.quotes h3 {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.quotes p {
+  font-weight: 200;
+  letter-spacing: 1px;
+  font-size: 0.8em;
+}
+
+/* hamburger menu */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  height: 20px;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+
+.menu-toggle input {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background-color: rgb(42, 42, 42);
+  border-radius: 3px;
+  transition: 0.5s;
+}
+
+/* hamburger menu animation */
+.menu-toggle span:nth-child(2) {
+  transform-origin: 0 0;
+  /* background-color: red; */
+}
+.menu-toggle span:last-child {
+  transform-origin: 0 100%;
+  /* background-color: red; */
+}
+
+.menu-toggle input:checked ~ span:nth-child(2) {
+  background-color: rgb(241, 241, 241);
+  transform: rotate(45deg) translate(-1px, -1px);
+}
+.menu-toggle input:checked ~ span:last-child {
+  background-color: rgb(241, 241, 241);
+  transform: rotate(-45deg) translate(-1px, 0);
+}
+.menu-toggle input:checked ~ span:nth-child(3) {
+  opacity: 0;
+  /* transform: rotate(-45deg) translate(-1px, 0); */
+  transform: scale(0);
+}
+
+/* about */
+.about .brand {
+  margin-top: 30px;
+}
+.abouts {
+  display: grid;
+  grid-template-areas: "pic_about konten_about";
+}
+
+.pic_about {
+  grid-area: pic_about;
+  display: grid;
+  min-height: 350px;
+  background-color: black;
+  color: whitesmoke;
+  padding: 50px;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  margin-right: 20px;
+}
+
+.konten_about {
+  grid-area: konten_about;
+  display: grid;
+  text-align: justify;
+  justify-content: center;
+  align-content: center;
+}
+
+/* footer */
+
+footer {
+  margin-top: 150px;
+  width: 100%;
+  min-height: 100px;
+  margin-left: 0;
+  margin-bottom: 0;
+  background-color: black;
+  padding: 50px;
+}
+
+.isi_footer {
+  display: grid;
+  grid-template-areas: "logo explore visit follow";
+  color: whitesmoke;
+  justify-content: space-evenly;
+}
+
+.isi_footer .logo {
+  display: grid;
+  grid-area: logo;
+  justify-content: center;
+  align-content: center;
+  line-height: 10px;
+}
+
+.isi_footer .logo p:first-child {
+  font-weight: bolder;
+  font-size: 23px;
+}
+
+.logo p:nth-child(2) {
+  font-size: 16px;
+}
+
+.logo p:last-child {
+  font-weight: bolder;
+  font-size: 16px;
+}
+
+.isi_footer .explore p {
+  display: grid;
+  grid-area: explore;
+  line-height: 6px;
+}
+
+.explore p:first-child {
+  font-weight: bolder;
+}
+
+.explore p:nth-child(2),
+p:nth-child(3),
+p:nth-child(4),
+p:last-child {
+  font-size: 15px;
+}
+
+.isi_footer .visit p {
+  display: grid;
+  grid-area: visit;
+  line-height: 6px;
+}
+
+.visit p:first-child {
+  font-weight: bolder;
+}
+
+.visit p:nth-child(2),
+p:nth-child(3),
+p:last-child {
+  font-size: 15px;
+}
+
+.isi_footer .follow p {
+  display: grid;
+  grid-area: follow;
+  line-height: 6px;
+}
+
+.isi_footer .follow a {
+  color: white;
+}
+
+.follow .pfollow {
+  font-weight: bolder;
+}
+
+.cc {
+  padding-left: 30px;
+  margin-top: 10px;
+}
+.cc p {
+  font-size: 13px;
+  font-weight: lighter;
+}
+
+/* responsive */
+
+@media (max-width: 1024px) {
+  .menu {
+    order: inherit;
+    grid-template-columns: 1fr;
+    margin-top: 10px;
+  }
+
+  .menu .brand {
+    display: none;
+  }
+
+  .hero h2,
+  .hero p {
+    display: block;
+    font-weight: bold;
+    color: rgb(157, 157, 156);
+    padding: 5px;
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu {
+    order: -1;
+    justify-items: end;
+  }
+  .menu ul {
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(54, 54, 54, 0.9);
+    z-index: 1;
+    transform: translateY(-100%);
+    transition: all 1.5s;
+    opacity: 0;
+  }
+  .menu-toggle {
+    display: flex;
+  }
+
+  .menu ul.slide {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 650px) {
+  .header {
+    grid-template-areas:
+      "hero"
+      "feature-1";
+  }
+  .isi_footer {
+    grid-template-areas:
+      "logo"
+      "explore"
+      "visit"
+      "follow";
+    text-align: center;
+  }
+
+  .explore,
+  .visit,
+  .follow {
+    margin-top: 15px;
+  }
+}
